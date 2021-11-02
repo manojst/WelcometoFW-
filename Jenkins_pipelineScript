@@ -1,0 +1,41 @@
+pipeline {
+	agent any
+    stages {
+        stage('SCM Checkout'){
+            steps{
+                 git 'https://gitlab.training.dagility.com/manojkumar_gnanasekaran/welcometofw.git'
+            }           
+        }
+        stage('Restore project'){
+            steps{
+                powershell '''dotnet restore ./WelcomeToDotNetFM.csproj'''
+            }            
+        }
+        stage('Build project'){
+            steps{
+                powershell '''msbuild'''
+            }            
+        }
+        stage('Publish project'){
+            steps{
+                 powershell '''msbuild WelcomeToDotNetFM.csproj /t:Publish /p:Configuration=Deploy'''
+            }           
+        }
+        stage('Deploy-App'){
+	        steps{
+                powershell '''
+                #Import-Module WebAdministration
+                #Remove-WebSite -Name webapp-core
+                #Remove-WebAppPool -Name webapp-fw
+                New-WebAppPool -Name dotnetwebapp-fw -Force
+                $filepath= "C:\\Users\\Public\\DotNet_Projects\\WelcomeToDotNetFW\\bin\\app.publish"
+                $websiteurl= "dotnetappfw.com"
+                $websitename= "dotnetwebapp-fw"
+                New-WebAppPool -Name $websitename -Force
+                New-Website -Name $websitename -Port 82 -IPAddress * -HostHeader $websiteurl -PhysicalPath $filepath -ApplicationPool $websitename -Force
+                New-WebBinding -Name "$websitename" -IPAddress "*" -Port 82 -Protocol http
+                '''
+            }
+        }
+    }
+}
