@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WelcomeToDotNetFM", "WelcomeToDotNetFM.csproj", "{0D7C0775-13A4-4EF2-AC55-1AD85F9CFCAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D7C0775-13A4-4EF2-AC55-1AD85F9CFCAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D7C0775-13A4-4EF2-AC55-1AD85F9CFCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D7C0775-13A4-4EF2-AC55-1AD85F9CFCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D7C0775-13A4-4EF2-AC55-1AD85F9CFCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29B39E59-2669-420A-8ED6-926F1E048FF2}
+	EndGlobalSection
+EndGlobal
